@@ -7,9 +7,7 @@ before_install:
    
 
 script:
-  - docker run raghu1/react npm run test -- --coverageThe command "docker build -t raghu1/react -f dockerfile.dev ." failed and exited with 1 during .
-
-
+  - docker run raghu1/react npm run test -- --coverage
 deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
