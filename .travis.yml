@@ -7,4 +7,18 @@ before_install:
    
 
 script:
-  - docker run raghu1/react npm run test -- --coverage
+  - docker run raghu1/react npm run test -- --coverageThe command "docker build -t raghu1/react -f dockerfile.dev ." failed and exited with 1 during .
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app:  "docker"
+  env: "Raghu1react-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-823825273234"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: "$AWS_Access_key"
+  Secret access key:
+    secure: "$AWS_SECRET_KEY"
